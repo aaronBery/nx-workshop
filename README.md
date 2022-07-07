@@ -1,4 +1,50 @@
+# Commands
 
+##### To create a new Nx workspace:
+```bash
+npx create-nx-workspace bg-hoard --preset=empty --no-nx-cloud
+```
+
+##### To generate a new Angular application:
+```bash
+nx generate @nrwl/angular:application store (or nx g app store)
+```
+##### To build the app (defaults to "production"):
+```bash
+nx build store
+```
+
+##### To build the app for development:
+```bash
+nx build store --configuration=development
+```
+
+##### Generate a new lib:
+```bash
+nx generate @nrwl/angular:lib ui-shared --directory=store
+```
+
+##### Generate a new component in a project:
+```bash
+nx generate @nrwl/angular:component header --export --project=store-ui-shared
+```
+
+##### Generate a framework agnostic lib
+```bash
+nx generate @nrwl/workspace:lib util-formatters --directory=store
+```
+
+##### Generate a lazy routing lib in a specific directory that is pre-configured with a certain parent module
+
+```bash
+nx generate @nrwl/angular:lib feature-game-detail --directory=store --lazy --routing --parentModule="apps/store/src/app/app.module.ts"
+```
+
+##### Generate an Angular component in a specific project
+
+```bash
+nx generate @nrwl/angular:component game-detail --project=store-feature-game-detail
+```
 
 # BgHoard
 

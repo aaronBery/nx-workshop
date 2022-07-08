@@ -1,37 +1,33 @@
-name: Run CI checks
+name: Run CI checks # The name will show up on the GitHub Actions dashboard
 
-on: [pull_request]
+on: [pull_request] # This workflow will run only on Pull Requests
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Building affected apps
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
-    steps:
-      - uses: actions/checkout@v1
-      - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=build --base=origin/master --parallel
   test:
     runs-on: ubuntu-latest
     name: Testing affected apps
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=test --base=origin/master --parallel
+      - run: npx nx affected -- --target=test --base=origin/main --parallel
+  build:
+    runs-on: ubuntu-latest
+    name: Building affected apps
+    steps:
+      - uses: actions/checkout@v1
+      - uses: bahmutov/npm-install@v1.4.5
+      - run: npx nx affected -- --target=build --base=origin/main --parallel
   lint:
     runs-on: ubuntu-latest
     name: Linting affected apps
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=lint --base=origin/master --parallel
+      - run: npx nx affected -- --target=lint --base=origin/main --parallel
   e2e:
     runs-on: ubuntu-latest
-    name: E2E testing affected apps
-    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
+    name: Running e2e tests for affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=e2e --base=origin/master --parallel
+      - run: npx nx affected -- --target=e2e --base=origin/main --parallel

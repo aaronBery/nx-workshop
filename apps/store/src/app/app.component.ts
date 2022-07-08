@@ -3,6 +3,7 @@ import { getAllGames } from '../fake-api';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 import { HttpClient } from "@angular/common/http";
 import { Game } from '@bg-hoard/util-interface';
+import { of } from "rxjs";
 
 @Component({
   selector: 'bg-hoard-root',
@@ -12,7 +13,7 @@ import { Game } from '@bg-hoard/util-interface';
 export class AppComponent {
   title = 'Board Game Hoard';
 
-  games = this.http.get<Game[]>('/api/games');
+  games = of(getAllGames()); // this.http.get<Game[]>('/api/games');
 
   formatRating = formatRating;
 

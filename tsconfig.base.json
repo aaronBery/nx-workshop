@@ -21,6 +21,9 @@
       "@bg-hoard/store/feature-game-detail": [
         "libs/store/feature-game-detail/src/index.ts"
       ],
+      "@bg-hoard/store/feature-notifications": [
+        "libs/store/feature-notifications/src/index.ts"
+      ],
       "@bg-hoard/store/ui-shared": ["libs/store/ui-shared/src/index.ts"],
       "@bg-hoard/store/util-formatters": [
         "libs/store/util-formatters/src/index.ts"

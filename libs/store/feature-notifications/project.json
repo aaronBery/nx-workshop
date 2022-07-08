@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/store/feature-notifications/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/store/feature-notifications/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/store/feature-notifications"],
+      "options": {
+        "jestConfig": "libs/store/feature-notifications/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:feature", "scope:store"]
+}

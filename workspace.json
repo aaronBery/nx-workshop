@@ -11,6 +11,8 @@
     "store-ui-shared": "libs/store/ui-shared",
     "store-ui-shared-e2e": "apps/store-ui-shared-e2e",
     "store-util-formatters": "libs/store/util-formatters",
-    "util-interface": "libs/util-interface"
+    "util-interface": "libs/util-interface",
+    "vide-games": "apps/vide-games",
+    "vide-games-e2e": "apps/vide-games-e2e"
   }
 }
